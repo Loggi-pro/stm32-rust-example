@@ -1,0 +1,5 @@
+{
+  "mcu": "stm32f103c8",
+  "flash_size": 64000,
+  "ram_size": 20000
+}

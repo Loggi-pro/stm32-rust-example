@@ -34,14 +34,14 @@
       // "executable": "./target/thumbv7em-none-eabihf/debug/examples/itm",
       "device": "STM32F103C8T6",
       "configFiles": ["${workspaceRoot}/openocd.cfg"],
-      "svdFile": "${workspaceRoot}/STM32F103.svd"
-      /*"swoConfig": {
+      "svdFile": "${workspaceRoot}/STM32F103.svd",
+      "swoConfig": {
         "enabled": true,
         "cpuFrequency": 8000000,
         "swoFrequency": 2000000,
-       "source": "probe",
+        "source": "probe",
         "decoders": [{ "type": "console", "label": "ITM", "port": 0 }]
-      }*/
+      }
     }
   ]
 }

@@ -114,10 +114,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b1411551beb3c11dedfb0a90a0fa256b47d28b9ec2cdff34c25a2fa59e45dbdc"
 
 [[package]]
-name = "panic-halt"
-version = "0.2.0"
+name = "panic-itm"
+version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "de96540e0ebde571dc55c73d60ef407c653844e6f9a1e2fdbd40c07b9252d812"
+checksum = "98830d17a95587207e41edaa3009b143d326ce134b0e3538ac98246a67d66cc3"
+dependencies = [
+ "cortex-m",
+]
 
 [[package]]
 name = "proc-macro2"
@@ -194,7 +197,7 @@ dependencies = [
  "cortex-m-semihosting",
  "embedded-hal",
  "nb",
- "panic-halt",
+ "panic-itm",
  "stm32f1xx-hal",
 ]
 

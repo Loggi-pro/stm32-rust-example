@@ -2,15 +2,17 @@
 #![no_std]
 #![no_main]
 
-use panic_halt as _;
-
+//use panic_halt as _;
+extern crate panic_itm; // panic handler
 use nb::block;
 
+#[allow(unused_imports)]
+use cortex_m::{asm::bkpt, iprint, iprintln, peripheral::ITM};
 use cortex_m_rt::entry;
 use embedded_hal::digital::v2::OutputPin;
 use stm32f1xx_hal::{pac, prelude::*, timer::Timer};
-
 // Определяем входную функцию.
+
 #[entry]
 fn main() -> ! {
     // Получаем управление над аппаратными средствами
@@ -29,6 +31,8 @@ fn main() -> ! {
     // Конфигурируем системный таймер на запуск обновления каждую секунду.
     let mut timer = Timer::syst(cp.SYST, &clocks).start_count_down(1.hz());
 
+    let mut itm = cp.ITM;
+
     // Ждём пока таймер запустит обновление
     // и изменит состояние светодиода.
     loop {
@@ -36,5 +40,6 @@ fn main() -> ! {
         led.set_high().unwrap();
         block!(timer.wait()).unwrap();
         led.set_low().unwrap();
+        iprintln!(&mut itm.stim[0], "hello wordl!")
     }
 }

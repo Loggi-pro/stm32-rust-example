@@ -9,7 +9,7 @@ edition = "2018"
 cortex-m = "*"
 cortex-m-rt = "*"
 cortex-m-semihosting = "*"
-panic-halt = "*"
+panic-itm = "*"
 nb = "0.1.2"
 embedded-hal = "0.2.3"
 

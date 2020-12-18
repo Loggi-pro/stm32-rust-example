@@ -8,9 +8,9 @@
       "type": "shell",
       "command": "python",
       "args": [
-        "${env:AVR32_HOME}/vsavr/bin/avr_gen_size.py",
+        "${env:AVR32_HOME}/vsavr/bin/size_printer.py",
         "--size=arm-none-eabi-size.exe",
-        "--elf=${workspaceFolder}/target/thumbv7m-none-eabi/debug/${workspaceFolderBasename}",
+        "--elf=${config:exec_basepath}/debug/${config:exec_name}",
         "--mcu=${config:mcu}",
         "--maxflash=${config:flash_size}",
         "--maxram=${config:ram_size}"
@@ -31,9 +31,9 @@
       "type": "shell",
       "command": "python",
       "args": [
-        "${env:AVR32_HOME}/vsavr/bin/avr_gen_size.py",
+        "${env:AVR32_HOME}/vsavr/bin/size_printer.py",
         "--size=arm-none-eabi-size.exe",
-        "--elf=${workspaceFolder}/target/thumbv7m-none-eabi/release/${workspaceFolderBasename}",
+        "--elf=${config:exec_basepath}/release/${config:exec_name}",
         "--mcu=${config:mcu}",
         "--maxflash=${config:flash_size}",
         "--maxram=${config:ram_size}"
@@ -58,7 +58,7 @@
       "label": "_cargo build",
       "type": "process",
       "command": "cargo",
-      "args": ["build"],
+      "args": ["build"], //setup for crosscompiling
       "problemMatcher": ["$rustc"],
       "presentation": {
         "clear": true,
@@ -81,7 +81,7 @@
       "label": "_cargo build --release",
       "type": "process",
       "command": "cargo",
-      "args": ["build", "--release"],
+      "args": ["build", "--release"], //setup for crosscompiling
       "problemMatcher": ["$rustc"],
       //"group": "build",
       "presentation": {
@@ -150,3 +150,4 @@
     //
   ]
 }
+

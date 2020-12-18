@@ -1,4 +1,5 @@
-target remote :50000
+# select server port (different for stlink/jlink)
+target extended-remote :50000
 
 # print demangled symbols
 set print asm-demangle on
@@ -35,6 +36,7 @@ monitor arm semihosting enable
 # monitor itm port 0 on
 
 load
+monitor reset
 
 # start the process but immediately halt the processor
 stepi
